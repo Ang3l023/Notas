@@ -1,0 +1,28 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-8 offset-md-2">
+        <form [formGroup]="search" (submit)="buscarNotes(val)">
+            <div class="form-row">
+                <div class="col-sm-12 col-md-6 offset-md-3">
+                  <input
+                    type="text" [(ngModel)]="val"
+                    name="search" formControlName="search"
+                    class="form-control" placeholder="City">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row mt-3" *ngIf="notes.length !== 0">
+    <div *ngFor="let note of notes" class="col-sm-12 col-md-4 text-center mb-3">
+        <app-note [note]="note" ></app-note>
+    </div>
+</div>
+
+<div class="row mt-3" *ngIf="notes.length === 0">
+    <div class="col-sm-12 col-md-4 offset-md-4">
+        <div class="alert alert-info" role="alert">
+            No hay resultados
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+
+<div>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 offset-md-2">
+            <form [formGroup]="search" class="my-2 my-lg-0" (submit)="submitSearch()" >
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="input-group-text text-secondary text-decoration-none"
+                    type="submit" id="basic-addon1">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+                <input type="text" class="form-control"
+                  formControlName="search"
+                  placeholder="Buscar...">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a routerLink="/home" class="navbar-brand mb-0 h1">
+      <img width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"
+        src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-notes-icon-png-image_4256335.jpg">
+      Notas
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" (click)="hide()" routerLinkActive="active">
+          <a class="nav-link" (click)="hide()" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" (click)="hide()" routerLink="/home/new">Notes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" (click)="hide()" routerLink="/home/profile">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="text-muted nav-link" (click)="hide()" data-toggle="collapse"
+            data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Buscar
+          </a>
+        </li>
+      </ul>
+      <a routerLink="/login" (click)="[hide(), logout()]" class="text-decoration-none text-muted ml-3">
+        Cerrar Sesion
+      </a>
+    </div>
+  </nav>
+
+</div>

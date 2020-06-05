@@ -1,0 +1,40 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center">Nueva Nota</h1>
+                <form [formGroup]="noteForm" (submit)="submitNote()" >
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Titulo</label>
+                    <input
+                        [(ngModel)]="note.titulo"
+                        type="text"
+                        class="form-control"
+                        formControlName="titulo">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Nota</label>
+                    <textarea
+                        class="form-control"
+                        [(ngModel)]="note.nota"
+                        formControlName="nota"
+                        id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+                    <small id="helpNote" class="form-text text-muted">
+                      Contenido de la Nota
+                    </small>
+                  </div>
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      {{ text }}
+                    </button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <app-note [note]="note" ></app-note>
+    </div>
+</div>

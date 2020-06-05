@@ -1,0 +1,122 @@
+<div id="main">
+  <div class="container" style="height: 100vh;">
+    <div class="row justify-content-md-center" style="height: 100vh;">
+      <div class="col-md-6 col-sm-12 align-self-center">
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <!-- Formulario -->
+            <form [formGroup]="register" novalidate class="container" (submit)="submitRegister()">
+              <div class="form-group">
+                <blockquote class="blockquote text-center">
+                  <h1 class="h1 mb-0">
+                    Register
+                  </h1>
+                </blockquote>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Nombre Completo</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-user-alt"></i>
+                    </div>
+                  </div>
+                  <input
+                    type="text" class="form-control" [ngClass]="{'is-valid': submit && !displayName.error,
+                    'is-invalid': displayName.error}"
+                    formControlName="displayName" id="inlineFormInputGroup"
+                    placeholder="Nombre Completo">
+                     <div class="valid-feedback"
+                        *ngIf="submit"
+                       [ngClass]="{'invalid-feedback': displayName.error, 'valid-feedback': !displayName.error }">
+                       {{ displayName.text || 'Datos correctos' }}
+                     </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Correo Electronico</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                  </div>
+                  <input
+                    type="email" class="form-control"
+                    [ngClass]="{'is-valid': submit && !email.error,'is-invalid': email.error}"
+                    formControlName="email" id="inlineFormInputGroup"
+                    placeholder="Correo Electronico">
+                    <div class="valid-feedback" *ngIf="submit"
+                        [ngClass]="{'invalid-feedback': email.error, 'valid-feedback': !email.error }">
+                        {{ email.text || 'Datos correctos' }}
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Password</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </div>
+                  </div>
+                  <input
+                    type="password" class="form-control"
+                    [ngClass]="{'is-valid': submit && !pwd.error,
+                    'is-invalid': pwd.error}"
+                    formControlName="pwd" id="inlineFormInputGroup"
+                    placeholder="Password">
+                  <small id="passwordHelpBlock" class="form-text text-muted mt-1">
+                    Tu contraseña debe tener entre 8-15 caracteres, debe contener letras y numeros
+                  </small>
+                  <div class="valid-feedback" *ngIf="submit"
+                    [ngClass]="{'invalid-feedback': pwd.error, 'valid-feedback': !pwd.error }">
+                    {{ pwd.text || 'Datos correctos' }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Confirm Password</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </div>
+                  </div>
+                  <input
+                    type="password" class="form-control"
+                    [ngClass]="{'is-valid': submit && !pwd2.error,
+                    'is-invalid': pwd2.error}"
+                    formControlName="pwd2" id="inlineFormInputGroup"
+                    placeholder="Confirm Password">
+                  <small id="passwordHelpBlock" class="form-text text-muted mt-1">
+                    Tu contraseña debe tener entre 8-15 caracteres, debe contener letras y numeros
+                  </small>
+                  <div class="valid-feedback" *ngIf="submit"
+                    [ngClass]="{'invalid-feedback': pwd2.error, 'valid-feedback': !pwd2.error }">
+                    {{ pwd2.text || 'Datos correctos' }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                      Ingresar
+                      <i class="fa fa-paper-plane mr-2"></i>
+                  </button>
+              </div>
+              <div class="form-group">
+                <blockquote class="blockquote text-center text-justify">
+                  <p class="mb-0">
+                    ¿Tienes cuenta?
+                    <a routerLink="/login" class="text-decoration-none">Ingresa aquí</a>
+                  </p>
+                </blockquote>
+              </div>
+            </form>
+            <!-- Formulario -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
